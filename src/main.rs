@@ -1,11 +1,31 @@
 fn main() {
     println!(">>> Chapter Four");
 
+    println!("----------------------------------------------------");
     page_66();
+    println!("----------------------------------------------------");
     page_67();
-
+    println!("----------------------------------------------------");
+    references_and_borrowing();
+    println!("----------------------------------------------------");
 
     println!("<<< Chapter Four");
+}
+
+fn references_and_borrowing() {
+    println!(">>> references_and_borrowing");
+
+    let s1 = String::from("Hello s1");
+
+    let len = calculate_length(&s1);
+
+    println!("Length of the s1({}) is {}", s1, len);
+
+    println!("<<< references_and_borrowing");
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
 }
 
 fn page_67() {
@@ -18,7 +38,7 @@ fn page_67() {
 
     let _s3 = takes_and_gives_back(s2);
     println!("3 contents of s1:{}", s1);
-//    println!("3 contents of s2:{}", s2);  // Not valid now, was moved into line 19
+
     println!("3 contents of s3:{}", _s3);
     println!("<<< page_67");
 }
